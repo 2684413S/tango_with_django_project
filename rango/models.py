@@ -5,7 +5,7 @@ from django.db import models
 class Category (models.Model):
     name = models.CharField(max_length=128, unique=True)
 
-    #chap5 exercise 1
+    #chap5 exercise adding view and likes fields to Category model
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
 
