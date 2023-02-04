@@ -50,13 +50,13 @@ def add_category(request):
         form = CategoryForm(request.POST)
 
     #saves form data provided by user to the model, redirects to Rango homepage 
-    if form.is_valid():
-        form.save(commit=True)
-        return redirect('/rango/')
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('/rango/')
 
-    else:
+        else:
         #redisplay form with error messages if there are errors.
-        print(form.errors)
+            print(form.errors)
     
     return render(request, 'rango/add_category.html', {'form': form})
 
@@ -69,7 +69,7 @@ def add_page(request, category_name_slug):
         category = None
 
     if category is None:
-        return redirect('/rango/')
+        return redirect(reverse('rango:index'))
 
     form = PageForm()
 
