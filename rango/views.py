@@ -31,7 +31,7 @@ def index(request):
 def about(request):
     context_dict = {}
     context_dict["boldmessage"] = "This tutorial has been put together by Ayleen Sohaib."
-    
+
     visitor_cookie_handler(request)
     context_dict['visits'] = request.session["visits"]
 
@@ -65,7 +65,7 @@ def add_category(request):
     #saves form data provided by user to the model, redirects to Rango homepage 
         if form.is_valid():
             form.save(commit=True)
-            return redirect('/rango/')
+            return redirect(reverse('rango:index'))
 
         else:
         #redisplay form with error messages if there are errors.
